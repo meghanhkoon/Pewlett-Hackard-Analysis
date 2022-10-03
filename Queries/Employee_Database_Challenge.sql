@@ -36,3 +36,25 @@ GROUP BY title
 ORDER BY COUNT(title) DESC;
 -- Check retiring titles table 
 SELECT * FROM retiring_titles;
+
+-- Deliverable 2: The Employees Eligible for the Mentorship Program 
+
+-- mentorship eligibility
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
+	e.first_name,
+	e.last_name,
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	t.title
+--INTO mentorship_eligibility
+FROM employees as e
+	LEFT OUTER JOIN dept_emp as de
+		ON (e.emp_no = de.emp_no)
+	LEFT OUTER JOIN titles as t
+		ON (e.emp_no = t.emp_no) 
+WHERE (t.to_date = '9999-01-01')
+	AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+ORDER BY e.emp_no;
+-- Check mentorship_eligibility table
+SELECT * FROM mentorship_eligibility 
