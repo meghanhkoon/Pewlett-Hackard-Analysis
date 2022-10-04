@@ -69,9 +69,12 @@ After removing our duplicates and those who already left the company, we created
 
 Lastly, we found a list of employees who were eligibily for a mentorship program by finding current employees who were born between January 1, 1965 and Dec. 31, 1965. 
 
-* There were a total of 1549 eligible employees for the mentorship program. For the full list of employees who are eligible for mentorship, see [mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv).
+* There were a total of 1,549 eligible employees for the mentorship program. For the full list of employees who are eligible for mentorship, see [mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv).
 ![mentorship_eligibility](Reference/mentorship_eligibility.png)
 
 
 ## Summary 
+* How many roles will need to be filled as the "silver tsunami" begins to make an impact?
 
+There are 
+* Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
