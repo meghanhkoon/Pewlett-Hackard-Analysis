@@ -77,7 +77,17 @@ Lastly, we found a list of employees who were eligibily for a mentorship program
 
 
 ## Summary 
-* How many roles will need to be filled as the "silver tsunami" begins to make an impact?
+Currently, there are 72,458 employees who are of retirement age. From these 72,458 employees who are ready for retirement, 70% of these positions come from Senior positions. This can result in a "silver tsunami" at Pewlett-Hackard's company. In order to prevent the "tsunami" from happening, Human Resources at Pewlett-Hackard needs to start filling the soon-to-be vacant positions. From our analysis (specifically [unique_titles.csv](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/unique_titles.csv)), we know which roles and how many of each title need to be filled:
 
-There are 
-* Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+- 25,916 Senior Engineers
+- 24,926 Senior Staff
+- 9,285 Engineers
+- 7636 Staff
+- 3,603 Technique Leaders
+- 1,090 Assistant Engineers
+- 2 Managers 
+
+After this analysis, HR should be planning ahead. One strategy they are preparing is a Mentorship program. From the analysis ([mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv).
+![mentorship_eligibility](Reference/mentorship_eligibility.png)), we see that there are only 1,549 employees eligible for a mentorship program. Although there are many retirement-ready employees who could mentor the next generation of Pewlett Hackard employees, there only are 1,549 employees who are qualified to be mentored. This is not enough mentees for the mentorship program to work. 
+
+
