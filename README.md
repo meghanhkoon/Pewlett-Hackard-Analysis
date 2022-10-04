@@ -87,10 +87,35 @@ Currently, there are 72,458 employees who are of retirement age. From these 72,4
 - 1,090 Assistant Engineers
 - 2 Managers 
 
-While the number of soon to be vacant positions are helpful, another query based on the number of positions in each department that will be vacated by the retirees would be helpful to HR. To do this, we:
+While the number of soon to be vacant positions are helpful, another query based on the number of positions in each department that will be vacated by the retirees would be helpful to HR. To do this, the code for our query:
 ```
+-- positions in each dept to be filled 
+SELECT * FROM unique_titles
+SELECT * FROM retirement_titles
 
+SELECT DISTINCT ON (ut.emp_no)
+ut.emp_no,
+ut.first_name,
+ut.last_name,
+ut.title,
+de.dept_no,
+d.dept_name
+INTO titles_by_dept
+FROM unique_titles as ut
+	INNER JOIN dept_emp as de
+		ON (ut.emp_no = de.emp_no) 
+	INNER JOIN departments as d 
+		ON (d.dept_no = de.dept_no) 
+ORDER BY ut.emp_no, de.to_date DESC;
+
+-- vacant positions by dept name and title 
+SELECT tbd.dept_name, tbd.title, COUNT(tbd.title) 
+INTO positions_to_fill_dept
+FROM titles_by_dept as tbd
+GROUP BY tbd.dept_name, tbd.title
+ORDER BY tbd.dept_name DESC;
 ```
+From this query, we were able to see that there is 38 departments. Within each department, there is a count of how many of each position will be vacated soon. For the full table, see [positions_to_fill_dept]().
 
 With knowing the amount of vacated positions, HR should be planning ahead. One strategy they are preparing is a Mentorship program. From the analysis ([mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv)), we see that there are only 1,549 employees eligible for a mentorship program. Although there are many retirement-ready employees who could mentor the next generation of Pewlett Hackard employees, there only are 1,549 employees who are qualified to be mentored. This is not enough mentees for the mentorship program to work. 
 
