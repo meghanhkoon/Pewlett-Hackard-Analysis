@@ -115,11 +115,17 @@ FROM titles_by_dept as tbd
 GROUP BY tbd.dept_name, tbd.title
 ORDER BY tbd.dept_name DESC;
 ```
-From this query, we were able to see that there is 38 departments. Within each department, there is a count of how many of each position will be vacated soon. For the full table, see [positions_to_fill_dept]().
+From this query, we were able to see that there is 38 departments. Within each department, there is a count of how many of each position will be vacated soon. For the full table, see [positions_to_fill_dept.csv](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/positions_to_fill_dept.csv).
+<img width="435" alt="positions_to_fill_dept" src="https://user-images.githubusercontent.com/110576028/193872231-3663ce45-f467-4071-a9d7-e1be6d0e5933.png">
 
 With knowing the amount of vacated positions, HR should be planning ahead. One strategy they are preparing is a Mentorship program. From the analysis ([mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv)), we see that there are only 1,549 employees eligible for a mentorship program. Although there are many retirement-ready employees who could mentor the next generation of Pewlett Hackard employees, there only are 1,549 employees who are qualified to be mentored. This is not enough mentees for the mentorship program to work. 
 
-One suggestion would be to broaden the mentorship eligibility age to being born in the year 1975 to 1965 (instead of only accepting those who were born in 1965). 
-
-Looking at 
+Looking at our unique_titles, we know that we have many employees who are retirement ready and have high senior positions. Although this may be what is causing the "silver tsunami," maybe we can use this to Pewlett Hackard's advantage. What if these senior level retirees could mentor more employees? Out of the total amount of employees who are retiring:
+- 25,916 Senior Engineers
+- 24,926 Senior Staff
+- 9,285 Engineers
+- 7636 Staff
+- 3,603 Technique Leaders
+- 1,090 Assistant Engineers
+- 2 Managers 
 
