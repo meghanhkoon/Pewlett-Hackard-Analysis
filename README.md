@@ -56,20 +56,23 @@ SELECT * FROM unique_titles;
 ```
 
 ### Final Table Results 
+A list of retiring employees ([retirement_title.csv](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/retirement_titles.csv)) was created with a query by retrieving information from the Employees and Titles csvs. Initally, there were 133,776 employees who were of retirement age (born in 1952). However, this table included duplicates of those who possibly switched positions/ job titles over the years. This dataset also includes employees who have already left the company. 
+
+After removing our duplicates and those who already left the company, we created a table with all the employees eligible for retirement. We then creating our retirement_titles.csv, we used the COUNT() and GROUPBY() functions to show the number of retirement-age employees by most recent job title. 
+
 * A total of 72,458 employees are eligible for retirement this year. This table demonstrates what our data in our [unique_titles.csv](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/unique_titles.csv) looks like. 
 
 ![unique_titles](Reference/unique_titles.png)
 
-After removing our duplicates and those who already left the company, we created a table with all the employees eligible for retirement. We then creating our retirement_titles.csv, we used the COUNT() and GROUPBY() functions to show the number of retirement-age employees by most recent job title. 
-
 * Out of the 72,458 eligible retiring employees, there are 25,916 Senior Engineers, 24,926 Senior Staff, 9,285 Engineers, 7636 Staff, 3,603 Technique Leaders, 1,090 Assistant Engineers, and 2 Managers. This data is helpful for knowing how many of which positions will need to be filled. See the table below.
+
 * An alarming 70% of employees of retirement age (50,842 out of the total 72,458) hold Senior titles (Senior Engineer / Senior Staff). 
 
 ![retiring_titles](Reference/retiring_titles.png)
 
 Lastly, we found a list of employees who were eligibily for a mentorship program by finding current employees who were born between January 1, 1965 and Dec. 31, 1965. 
 
-* There were a total of 1,549 eligible employees for the mentorship program. For the full list of employees who are eligible for mentorship, see [mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv).
+* There are a total of 1,549 eligible employees for the mentorship program. For the full list of employees who are eligible for mentorship, see [mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv).
 ![mentorship_eligibility](Reference/mentorship_eligibility.png)
 
 
