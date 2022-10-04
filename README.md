@@ -116,16 +116,38 @@ GROUP BY tbd.dept_name, tbd.title
 ORDER BY tbd.dept_name DESC;
 ```
 From this query, we were able to see that there is 38 departments. Within each department, there is a count of how many of each position will be vacated soon. For the full table, see [positions_to_fill_dept.csv](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/positions_to_fill_dept.csv).
+
 <img width="435" alt="positions_to_fill_dept" src="https://user-images.githubusercontent.com/110576028/193872231-3663ce45-f467-4071-a9d7-e1be6d0e5933.png">
 
 With knowing the amount of vacated positions, HR should be planning ahead. One strategy they are preparing is a Mentorship program. From the analysis ([mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv)), we see that there are only 1,549 employees eligible for a mentorship program. Although there are many retirement-ready employees who could mentor the next generation of Pewlett Hackard employees, there only are 1,549 employees who are qualified to be mentored. This is not enough mentees for the mentorship program to work. 
 
-Looking at our unique_titles, we know that we have many employees who are retirement ready and have high senior positions. Although this may be what is causing the "silver tsunami," maybe we can use this to Pewlett Hackard's advantage. What if these senior level retirees could mentor more employees? Out of the total amount of employees who are retiring:
+Looking at our unique_titles, we know that we have many employees who are retirement ready and have high senior positions. Although this may be what is causing the "silver tsunami," maybe we can use this to Pewlett Hackard's advantage. What if these senior level retirees could mentor more employees? Out of the total amount of employees who are retiring, there are 50,842 retirement-aged employees who have senior titles:
 - 25,916 Senior Engineers
 - 24,926 Senior Staff
-- 9,285 Engineers
-- 7636 Staff
-- 3,603 Technique Leaders
-- 1,090 Assistant Engineers
-- 2 Managers 
 
+We also know that the only criteria that employees have in order to be mentored is that they are born in the year 1965. Pewlett Hackard's HR team can increase the mentees at the company by including those who have senior titles. We can also increase mentees by allowing younger employees to participate (those born from 1965 - 1975). With more mentees who have higher positions, those who are retiring can now mentor more employees (increasing available mentees from 1,549 to 93,382!)- thus creating a better future for Pewlett-Hackard. 
+
+This is how the mentorship_eligibility query was refactored: 
+```
+-- new mentorship eligibility - increased age gap and included senior titles
+SELECT DISTINCT ON (e.emp_no) 
+	e.emp_no,
+	e.first_name,
+	e.last_name,
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	t.title
+INTO new_mentorship
+FROM employees as e
+	INNER JOIN dept_emp as de
+		ON (e.emp_no = de.emp_no)
+	INNER JOIN titles as t
+		ON (e.emp_no = t.emp_no) 
+WHERE (t.title = 'Senior Staff')
+	OR (t.title = 'Senior Engineer')
+	AND (t.to_date = '9999-01-01')
+	AND (e.birth_date BETWEEN '1965-01-01' AND '1975-12-31')
+ORDER BY e.emp_no;
+```
+Although there may be more mentees than retiring mentors now, we know that not all those who meet the mentee requirements will be available for mentorship. Perhaps, some retiring mentors can take on more mentees as well.
