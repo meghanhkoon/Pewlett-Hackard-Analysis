@@ -87,7 +87,14 @@ Currently, there are 72,458 employees who are of retirement age. From these 72,4
 - 1,090 Assistant Engineers
 - 2 Managers 
 
-After this analysis, HR should be planning ahead. One strategy they are preparing is a Mentorship program. From the analysis ([mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv).
-![mentorship_eligibility](Reference/mentorship_eligibility.png)), we see that there are only 1,549 employees eligible for a mentorship program. Although there are many retirement-ready employees who could mentor the next generation of Pewlett Hackard employees, there only are 1,549 employees who are qualified to be mentored. This is not enough mentees for the mentorship program to work. 
+While the number of soon to be vacant positions are helpful, another query based on the number of positions in each department that will be vacated by the retirees would be helpful to HR. To do this, we:
+```
 
+```
+
+With knowing the amount of vacated positions, HR should be planning ahead. One strategy they are preparing is a Mentorship program. From the analysis ([mentorship_eligibility](https://github.com/meghanhkoon/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv)), we see that there are only 1,549 employees eligible for a mentorship program. Although there are many retirement-ready employees who could mentor the next generation of Pewlett Hackard employees, there only are 1,549 employees who are qualified to be mentored. This is not enough mentees for the mentorship program to work. 
+
+One suggestion would be to broaden the mentorship eligibility age to being born in the year 1975 to 1965 (instead of only accepting those who were born in 1965). 
+
+Looking at 
 
